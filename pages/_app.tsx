@@ -28,7 +28,7 @@ export default function App(props: AppProps) {
           site_name: 'SF Tech Week',
           images: [
             {
-              url: `https://sf-techweek${preview.src}`,
+              url: `https://sf-techweek.com${preview.src}`,
               width: preview.width,
               height: preview.height,
               alt: 'SF Tech Week',

@@ -122,6 +122,14 @@ const Home: NextPage = () => {
           ))}
         </SimpleGrid>
       </Stack>
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing="9">
+        <Stack
+          spacing={{ base: '9', md: '14' }}
+          px={{ base: '4', md: '14' }}
+          py={{ base: 9, md: 14 }}
+          bg="w"
+        ></Stack>
+      </SimpleGrid>
       <Footer />
     </Container>
   );

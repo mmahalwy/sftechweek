@@ -71,6 +71,7 @@ export default function WithSubnavigation() {
               color={'black'}
               bgGradient="radial-gradient(98.71% 98.71% at 52.79% 99.41%, #FFC5C0 0%, #FFF1C0 100%, #FFF1C0 100%)"
               border="2px solid black"
+              as="a"
               href={'#'}
             >
               Register

@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Recoleta';
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/Recoleta/Recoleta-Regular.ttf') format('truetype');
+  src: url('/fonts/Recoleta/Recoleta-Black.ttf') format('truetype');
+  src: url('/fonts/Recoleta/Recoleta-Bold.ttf') format('truetype');
+}
+
+@font-face {font-family:"PF Tempesta Seven";
+  src:url("/fonts/pf_tempesta/pf_tempesta_seven_condensed.eot?") format("eot"),
+  url("/fonts/pf_tempesta/pf_tempesta_seven_condensed.woff") format("woff"),
+  url("/fonts/pf_tempesta/pf_tempesta_seven_condensed.ttf") format("truetype"),
+  url("/fonts/pf_tempesta/pf_tempesta_seven_condensed.svg#PFTempestaSevenCondensed") format("svg");font-weight:normal;font-style:normal;
+}

@@ -1,98 +1,129 @@
-import { Alert, Anchor, Box, Button, Container, Group, TextInput, Title } from '@mantine/core';
 import type { NextPage } from 'next';
-import { useForm } from '@mantine/form';
-
-import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
-
-import gg from '../public/images/gg.jpg';
+import portal from '../public/images/portal.svg';
+import star from '../public/images/star.svg';
+import brex from '../public/images/brex.png';
 import { useState } from 'react';
+import Navbar from '../components/Navbar';
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Heading,
+  HStack,
+  Link,
+  SimpleGrid,
+  Stack,
+  Text,
+} from '@chakra-ui/react';
+import Image from 'next/image';
+import Footer from '../components/Footer';
+
+const ValueProp = [
+  {
+    title: 'Learning',
+    description:
+      'From fire-side chats to expert panels, SF Tech Week is the place for anyone to learn about all things happening in tech and crypto.',
+  },
+  {
+    title: 'Building',
+    description: 'Bringing the best builders, operators and entrepreneurs under the same roof.',
+  },
+  {
+    title: 'Connecting',
+    description:
+      'Whether you’re seeking a cofounder, a new job or making new friends, SF Tech Week is where connections are made.',
+  },
+];
 
 const Home: NextPage = () => {
-  const form = useForm({
-    initialValues: {
-      email: '',
-    },
-
-    validate: {
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
-    },
-  });
-  const [formSuccess, setFormSuccess] = useState(false);
-
   return (
-    <>
-      <Container
-        size={'xl'}
+    <Container maxW="100%" px="6" pt="6">
+      <Navbar />
+      <Box
         sx={{
-          minHeight: '100vh',
-          display: 'flex',
-          alignItems: 'center',
+          borderLeft: '2px solid black',
+          borderRight: '2px solid black',
+          borderBottom: '2px solid black',
+          paddingTop: 24,
+          paddingBottom: 156,
+          background:
+            'radial-gradient(98.71% 98.71% at 52.79% 99.41%, #FFC5C0 0%, rgba(255, 241, 192, 0) 100%)',
         }}
       >
-        <Box sx={{ zIndex: 1 }}>
-          <Title order={1} size="h1" sx={{ fontSize: 64 }}>
-            SF TECH WEEK
-          </Title>
-          <Title order={3} size="h3">
-            Coming late October
-          </Title>
-          {formSuccess ? (
-            <Alert color="green" title="You're registered!" mt="lg">
-              We will be in touch soon.
-            </Alert>
-          ) : (
-            <Box
-              component="form"
-              mt="lg"
-              onSubmit={form.onSubmit(async (values) => {
-                await fetch('/api/registration', {
-                  method: 'POST',
-                  body: JSON.stringify(values),
-                  headers: new Headers({ 'content-type': 'application/json' }),
-                });
-                setFormSuccess(true);
-              })}
+        <Stack spacing="8">
+          <Image src={portal} width={48} height={48} alt="portal" />
+          <Stack spacing="6">
+            <Stack spacing="4" align="center">
+              <Heading fontSize={{ base: '16px', md: '25px' }}>Early November</Heading>
+              <Heading
+                fontSize={{ base: '39px', md: '95px' }}
+                lineHeight={{ base: '120%', md: '105%' }}
+                textAlign="center"
+              >
+                San Francisco
+                <br />
+                Tech Week
+              </Heading>
+            </Stack>
+          </Stack>
+          <Stack spacing="6" align="center">
+            <div>
+              <Button as="a" colorScheme={'blackAlpha'} bg="black" href="#" size="lg">
+                Register
+              </Button>
+            </div>
+            <Text>
+              Want to host an event? <Link>Sign up</Link>
+            </Text>
+          </Stack>
+        </Stack>
+      </Box>
+      <HStack
+        bg="black"
+        height={{ base: 16, md: 20 }}
+        justify="center"
+        gap={'32px'}
+        mt={{ base: 8, md: 0 }}
+        ml={{ base: -6, md: 0 }}
+        mr={{ base: -6, md: 0 }}
+      >
+        <Text color="white" fontFamily={'PF Tempesta Seven'}>
+          Events by
+        </Text>
+
+        <Image src={brex} width={100} objectFit="scale-down" />
+      </HStack>
+      <Stack border="2px solid black" px="14" py="24" spacing="16">
+        <Stack spacing="9">
+          <Image src={star} width={48} height={48} alt="portal" />
+          <Heading
+            fontSize={{ base: '39px', md: '61' }}
+            lineHeight={{ base: '120%', md: '105%' }}
+            textAlign="center"
+          >
+            What it’s all about
+          </Heading>
+        </Stack>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing="9">
+          {ValueProp.map((item) => (
+            <Stack
+              key={item.title}
+              spacing="6"
+              bg="white"
+              border="2px solid black"
+              padding="40px 40px 40px 32px"
             >
-              <TextInput
-                withAsterisk
-                placeholder="Enter email to register"
-                type="email"
-                {...form.getInputProps('email')}
-              />
-              <Group mt="sm">
-                <Button type="submit" color="goldengate">
-                  Register
-                </Button>
-                <Link href="/contact" passHref>
-                  <Anchor>Host an event</Anchor>
-                </Link>
-              </Group>
-            </Box>
-          )}
-        </Box>
-        <Box
-          sx={(theme) => ({
-            position: 'absolute',
-            right: 0,
-            width: '50%',
-            height: '100%',
-            [theme.fn.smallerThan('lg')]: {
-              width: '70%',
-            },
-          })}
-        >
-          <Image
-            src={gg}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="0 25%"
-            alt="golden gate"
-          />
-        </Box>
-      </Container>
-    </>
+              <Heading fontSize={{ base: '39px' }} lineHeight={{ base: '120%', md: '105%' }}>
+                {item.title}
+              </Heading>
+              <Text>{item.description}</Text>
+            </Stack>
+          ))}
+        </SimpleGrid>
+      </Stack>
+      <Footer />
+    </Container>
   );
 };
 

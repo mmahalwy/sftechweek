@@ -1,8 +1,39 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import { MantineProvider } from '@mantine/core';
+import { Box, ChakraProvider, extendTheme, StyleFunctionProps } from '@chakra-ui/react';
+
 import { DefaultSeo } from 'next-seo';
 import preview from '../public/images/sftw-preview.jpg';
+import '../styles.css';
+
+const colors = {
+  brand: {
+    900: '#ECE8E1',
+    800: '#ECE8E1',
+    700: '#ECE8E1',
+  },
+};
+const theme = extendTheme({
+  colors,
+  fonts: {
+    heading: `'Recoleta', sans-serif`,
+  },
+  styles: {
+    global: (props: StyleFunctionProps) => ({
+      body: {
+        bg: props.theme.colors.brand[900],
+      },
+    }),
+  },
+  components: {
+    Button: {
+      baseStyle: {
+        borderRadius: 'full',
+        fontWeight: 'bold',
+      },
+    },
+  },
+});
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
@@ -42,29 +73,9 @@ export default function App(props: AppProps) {
         //   cardType: 'summary_large_image',
         // }}
       />
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{
-          /** Put your mantine theme override here */
-          colorScheme: 'light',
-          primaryColor: 'dark',
-          defaultRadius: 0,
-          colors: {
-            goldengate: [
-              '#C0362C',
-              '#C0362C',
-              '#C0362C',
-              '#C0362C',
-              '#C0362C',
-              '#C0362C',
-              '#C0362C',
-            ],
-          },
-        }}
-      >
+      <ChakraProvider theme={theme}>
         <Component {...pageProps} />
-      </MantineProvider>
+      </ChakraProvider>
     </>
   );
 }

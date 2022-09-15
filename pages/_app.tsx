@@ -17,6 +17,7 @@ const theme = extendTheme({
   colors,
   fonts: {
     heading: `'Recoleta', sans-serif`,
+    body: `'Suisse Intl', sans-serif`,
   },
   styles: {
     global: (props: StyleFunctionProps) => ({
@@ -29,7 +30,7 @@ const theme = extendTheme({
     Button: {
       baseStyle: {
         borderRadius: 'full',
-        fontWeight: 'bold',
+        fontWeight: 700,
       },
     },
   },

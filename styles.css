@@ -7,6 +7,15 @@
   src: url('/fonts/Recoleta/Recoleta-Bold.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Suisse Intl';
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/Suisse Intl/Suisse Intl-Regular.otf') format('opentype');
+  src: url('/fonts/Suisse Intl/Suisse Intl-Black.otf') format('opentype');
+  src: url('/fonts/Suisse Intl/Suisse Intl-Bold.otf') format('opentype');
+}
+
 @font-face {font-family:"PF Tempesta Seven";
   src:url("/fonts/pf_tempesta/pf_tempesta_seven_condensed.eot?") format("eot"),
   url("/fonts/pf_tempesta/pf_tempesta_seven_condensed.woff") format("woff"),

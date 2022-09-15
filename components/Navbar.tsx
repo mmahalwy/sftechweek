@@ -44,7 +44,12 @@ export default function WithSubnavigation() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'center' }}>
-          <Flex justify={{ base: 'start', md: 'start' }} flex={1} align="center">
+          <Flex
+            justify={{ base: 'start', md: 'start' }}
+            flex={1}
+            align="center"
+            display={{ base: 'none', md: 'inline-flex' }}
+          >
             <Text
               textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
               fontFamily={'heading'}
@@ -65,7 +70,7 @@ export default function WithSubnavigation() {
 
           <Stack flex={1} justify={'flex-end'} direction={'row'} spacing={6}>
             <Button
-              display={{ base: 'none', md: 'inline-flex' }}
+              display={{ base: 'inline-flex', md: 'inline-flex' }}
               fontSize={'sm'}
               fontWeight={600}
               color={'black'}
@@ -101,7 +106,7 @@ const DesktopNav = () => {
                 p={2}
                 href={navItem.href ?? '#'}
                 fontSize={'sm'}
-                fontWeight={500}
+                fontWeight={700}
                 color={linkColor}
                 _hover={{
                   textDecoration: 'none',

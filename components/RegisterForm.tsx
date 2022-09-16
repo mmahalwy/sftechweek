@@ -3,6 +3,7 @@ import {
   FormControl,
   FormErrorMessage,
   FormLabel,
+  Heading,
   Input,
   Modal,
   ModalBody,
@@ -12,6 +13,7 @@ import {
   ModalHeader,
   ModalOverlay,
   useDisclosure,
+  VStack,
 } from '@chakra-ui/react';
 import React from 'react';
 import { useForm } from 'react-hook-form';
@@ -22,51 +24,94 @@ type Render = ({
   onClose,
 }: Pick<ReturnType<typeof useDisclosure>, 'onClose' | 'isOpen' | 'onOpen'>) => React.ReactNode;
 
-const HostForm = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+type FieldValues = { email: string; firstName: string; lastName: string; location: string };
+
+const RegisterHost = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
   const {
     handleSubmit,
     register,
     formState: { errors, isSubmitting },
-  } = useForm<{ email: string }>();
+  } = useForm<FieldValues>();
 
-  const onSubmit = (values: { email: string }) => {};
+  const onSubmit = (values: FieldValues) => {};
 
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} size="lg">
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <FormControl isInvalid={!!errors.email}>
-                <FormLabel htmlFor="name">First name</FormLabel>
-                <Input
-                  id="name"
-                  placeholder="name"
-                  {...register('email', {
-                    required: 'This is required',
-                  })}
-                />
-                <FormErrorMessage>{errors.email && errors.email.message}</FormErrorMessage>
-              </FormControl>
-              <Button mt={4} colorScheme="teal" isLoading={isSubmitting} type="submit">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <ModalBody>
+              <Heading my={6} fontFamily="Recoleta">
+                Register to SF Tech Week
+              </Heading>
+              <VStack spacing={6}>
+                <FormControl isInvalid={!!errors.email}>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="Email"
+                    variant="flushed"
+                    {...register('email', {
+                      required: 'This is required',
+                    })}
+                  />
+                  <FormErrorMessage>{errors.email && errors.email.message}</FormErrorMessage>
+                </FormControl>
+                <FormControl isInvalid={!!errors.firstName}>
+                  <Input
+                    id="firstName"
+                    placeholder="First Name"
+                    variant="flushed"
+                    {...register('firstName', {
+                      required: 'This is required',
+                    })}
+                  />
+                  <FormErrorMessage>
+                    {errors.firstName && errors.firstName.message}
+                  </FormErrorMessage>
+                </FormControl>
+                <FormControl isInvalid={!!errors.lastName}>
+                  <Input
+                    id="lastName"
+                    placeholder="Last Name"
+                    variant="flushed"
+                    {...register('lastName', {
+                      required: 'This is required',
+                    })}
+                  />
+                  <FormErrorMessage>{errors.lastName && errors.lastName.message}</FormErrorMessage>
+                </FormControl>
+                <FormControl isInvalid={!!errors.location}>
+                  <Input
+                    id="location"
+                    placeholder="Location"
+                    variant="flushed"
+                    {...register('location', {
+                      required: 'This is required',
+                    })}
+                  />
+                  <FormErrorMessage>{errors.location && errors.location.message}</FormErrorMessage>
+                </FormControl>
+              </VStack>
+            </ModalBody>
+
+            <ModalFooter>
+              <Button
+                mt={4}
+                colorScheme="blackAlpha"
+                bg="black"
+                isLoading={isSubmitting}
+                type="submit"
+              >
                 Submit
               </Button>
-            </form>
-          </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button variant="ghost">Secondary Action</Button>
-          </ModalFooter>
+            </ModalFooter>
+          </form>
         </ModalContent>
       </Modal>
     </>
   );
 };
 
-export default HostForm;
+export default RegisterHost;

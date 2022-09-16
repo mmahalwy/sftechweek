@@ -28,6 +28,7 @@ import {
 import Image from 'next/image';
 import Footer from '../components/Footer';
 import HostForm from '../components/HostForm';
+import RegisterForm from '../components/RegisterForm';
 
 const ValueProp = [
   {
@@ -67,10 +68,15 @@ const FAQ = [
 
 const Home: NextPage = () => {
   const { isOpen: isHostOpen, onOpen: onHostOpen, onClose: onHostClose } = useDisclosure();
+  const {
+    isOpen: isRegisterOpen,
+    onOpen: onRegisterOpen,
+    onClose: onRegisterClose,
+  } = useDisclosure();
 
   return (
     <Container maxW="100%" px="6" pt="6">
-      <Navbar />
+      <Navbar onRegisterOpen={onRegisterOpen} onHostOpen={onHostOpen} />
       <Box
         sx={{
           position: 'relative',
@@ -101,7 +107,14 @@ const Home: NextPage = () => {
           </Stack>
           <Stack spacing="6" align="center">
             <div>
-              <Button as="a" colorScheme={'blackAlpha'} bg="black" href="#" size="lg">
+              <Button
+                as="a"
+                colorScheme={'blackAlpha'}
+                bg="black"
+                href="#"
+                size="lg"
+                onClick={onRegisterOpen}
+              >
                 Register
               </Button>
             </div>
@@ -226,6 +239,7 @@ const Home: NextPage = () => {
           border="2px solid #150E0A"
         >
           <Heading
+            id="faq"
             fontSize={{
               base: '38px',
               md: '61px',
@@ -262,7 +276,7 @@ const Home: NextPage = () => {
           spacing="72px"
           align="start"
         >
-          <Heading color="white" fontSize={{ base: '39px', md: '61px' }}>
+          <Heading color="white" fontSize={{ base: '39px', md: '61px' }} id="host">
             Hosting a community meetup?
           </Heading>
 
@@ -272,6 +286,7 @@ const Home: NextPage = () => {
         </Stack>
       </SimpleGrid>
       <HostForm isOpen={isHostOpen} onClose={onHostClose} />
+      <RegisterForm isOpen={isRegisterOpen} onClose={onRegisterClose} />
       <Footer />
     </Container>
   );

@@ -17,7 +17,13 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon } from '@chakra-ui/icons';
 
-export default function WithSubnavigation() {
+export default function WithSubnavigation({
+  onRegisterOpen,
+  onHostOpen,
+}: {
+  onRegisterOpen: () => void;
+  onHostOpen: () => void;
+}) {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -77,7 +83,7 @@ export default function WithSubnavigation() {
               bgGradient="radial-gradient(98.71% 98.71% at 52.79% 99.41%, #FFC5C0 0%, #FFF1C0 100%, #FFF1C0 100%)"
               border="2px solid black"
               as="a"
-              href={'#'}
+              onClick={onRegisterOpen}
             >
               Register
             </Button>
@@ -252,8 +258,10 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: 'FAQ',
+    href: '#faq',
   },
   {
     label: 'Host event',
+    href: '#host',
   },
 ];

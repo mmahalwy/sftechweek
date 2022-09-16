@@ -36,7 +36,21 @@ const theme = extendTheme({
     Input: {
       baseStyle: {
         field: {
-          borderColor: 'black',
+          borderColor: '#150E0A',
+          _focusVisible: {
+            borderColor: '#150E0A',
+            boxShadow: `0px 1px 0px 0px #150E0A`,
+          },
+        },
+      },
+      variants: {
+        flushed: {
+          field: {
+            _focusVisible: {
+              borderColor: '#150E0A',
+              boxShadow: `0px 1px 0px 0px #150E0A`,
+            },
+          },
         },
       },
     },

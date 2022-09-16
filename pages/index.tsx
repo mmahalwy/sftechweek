@@ -1,6 +1,9 @@
 import type { NextPage } from 'next';
 import portal from '../public/images/portal.svg';
 import star from '../public/images/star.svg';
+import sanfran from '../public/images/sanfran.svg';
+import sanfranSmall from '../public/images/sanfran-small.svg';
+import chevronDown from '../public/images/chevron-down.svg';
 import brex from '../public/images/brex.png';
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
@@ -20,9 +23,11 @@ import {
   SimpleGrid,
   Stack,
   Text,
+  useDisclosure,
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import Footer from '../components/Footer';
+import HostForm from '../components/HostForm';
 
 const ValueProp = [
   {
@@ -61,11 +66,14 @@ const FAQ = [
 ];
 
 const Home: NextPage = () => {
+  const { isOpen: isHostOpen, onOpen: onHostOpen, onClose: onHostClose } = useDisclosure();
+
   return (
     <Container maxW="100%" px="6" pt="6">
       <Navbar />
       <Box
         sx={{
+          position: 'relative',
           borderLeft: '2px solid #150E0A',
           borderRight: '2px solid #150E0A',
           borderBottom: '2px solid #150E0A',
@@ -75,7 +83,7 @@ const Home: NextPage = () => {
             'radial-gradient(98.71% 98.71% at 52.79% 99.41%, #FFC5C0 0%, rgba(255, 241, 192, 0) 100%)',
         }}
       >
-        <Stack spacing="8">
+        <Stack spacing="8" zIndex={100}>
           <Image src={portal} width={48} height={48} alt="portal" />
           <Stack spacing="6">
             <Stack spacing="4" align="center">
@@ -99,12 +107,34 @@ const Home: NextPage = () => {
             </div>
             <Text fontWeight={700}>
               Want to host an event?{' '}
-              <Link href="#" textDecor="underline">
+              <Link onClick={onHostOpen} textDecor="underline">
                 Sign up
               </Link>
             </Text>
           </Stack>
         </Stack>
+        <Box
+          display={{ base: 'none', md: 'block' }}
+          position="absolute"
+          zIndex={-1}
+          top={0}
+          left={0}
+          right={0}
+          bottom={0}
+        >
+          <Image src={sanfran} layout="fill" objectFit="cover" quality={100} />
+        </Box>
+        <Box
+          display={{ base: 'block', md: 'none' }}
+          position="absolute"
+          zIndex={-1}
+          top={0}
+          left={0}
+          right={0}
+          bottom={0}
+        >
+          <Image src={sanfranSmall} layout="fill" objectFit="cover" quality={100} />
+        </Box>
       </Box>
       <HStack
         bg="black"
@@ -127,10 +157,10 @@ const Home: NextPage = () => {
         px={{ base: 0, md: '14' }}
         spacing="16"
       >
-        <Stack spacing="9">
+        <Stack spacing="9" px={{ base: 6, md: 0 }}>
           <Image src={star} width={48} height={48} alt="portal" />
           <Heading
-            fontSize={{ base: '39px', md: '61' }}
+            fontSize={{ base: '39px', md: '61px' }}
             lineHeight={{ base: '120%', md: '105%' }}
             textAlign="center"
           >
@@ -189,7 +219,7 @@ const Home: NextPage = () => {
       </Stack>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing="9" mt={8}>
         <Stack
-          spacing={{ base: '9', md: '14' }}
+          spacing={{ base: '8', md: '14' }}
           px={{ base: '4', md: '14' }}
           py={{ base: 9, md: 14 }}
           bg="white"
@@ -210,14 +240,17 @@ const Home: NextPage = () => {
                   <AccordionButton
                     paddingTop={{ base: 4, md: 8 }}
                     paddingBottom={{ base: 4, md: 6 }}
+                    px={0}
                   >
                     <Box flex="1" textAlign="left" fontSize={{ md: '20px' }} fontWeight={500}>
                       {item.title}
                     </Box>
-                    <AccordionIcon width={'24px'} height={'24px'} />
+                    <Image src={chevronDown} width={'24px'} height={'24px'} />
                   </AccordionButton>
                 </h2>
-                <AccordionPanel pb={4}>{item.description}</AccordionPanel>
+                <AccordionPanel pb={4} px={0}>
+                  {item.description}
+                </AccordionPanel>
               </AccordionItem>
             ))}
           </Accordion>
@@ -232,11 +265,13 @@ const Home: NextPage = () => {
           <Heading color="white" fontSize={{ base: '39px', md: '61px' }}>
             Hosting a community meetup?
           </Heading>
-          <Button colorScheme="whiteAlpha" bg="white" color="black" size="lg">
+
+          <Button colorScheme="whiteAlpha" bg="white" color="black" size="lg" onClick={onHostOpen}>
             Register
           </Button>
         </Stack>
       </SimpleGrid>
+      <HostForm isOpen={isHostOpen} onClose={onHostClose} />
       <Footer />
     </Container>
   );

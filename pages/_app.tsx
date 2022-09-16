@@ -33,6 +33,13 @@ const theme = extendTheme({
         fontWeight: 700,
       },
     },
+    Input: {
+      baseStyle: {
+        field: {
+          borderColor: 'black',
+        },
+      },
+    },
   },
 });
 

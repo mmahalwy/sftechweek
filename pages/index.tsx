@@ -93,7 +93,7 @@ const Home: NextPage = () => {
           <Image src={portal} width={48} height={48} alt="portal" />
           <Stack spacing="6">
             <Stack spacing="4" align="center">
-              <Heading fontSize={{ base: '16px', md: '25px' }}>Early November</Heading>
+              <Heading fontSize={{ base: '16px', md: '25px' }}>November 1st - 6th</Heading>
               <Heading
                 fontSize={{ base: '39px', md: '95px' }}
                 lineHeight={{ base: '120%', md: '105%' }}

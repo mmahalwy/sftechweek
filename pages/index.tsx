@@ -6,6 +6,7 @@ import sanfranSmall from '../public/images/sanfran-small.svg';
 import chevronDown from '../public/images/chevron-down.svg';
 import brex from '../public/images/brex.png';
 import airfoil from '../public/images/airfoil.svg';
+import stonks from '../public/images/stonks.webp';
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import {
@@ -170,6 +171,9 @@ const Home: NextPage = () => {
         </Box>
         <Box w={{ base: '60px', md: 100 }}>
           <Image src={airfoil} layout="responsive" />
+        </Box>
+        <Box w={{ base: '32px', md: '40px' }}>
+          <Image src={stonks} layout="responsive" />
         </Box>
       </HStack>
       <Stack

@@ -87,6 +87,7 @@ export default function App(props: AppProps) {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest"></link>
       </Head>
+      {process.env.NODE_ENV === 'production' && <GoogleAnalytics trackPageViews />}
       <DefaultSeo
         title="SF Tech Week"
         description="November 1-6, 2022"
@@ -106,13 +107,12 @@ export default function App(props: AppProps) {
             },
           ],
         }}
-        // twitter={{
-        //   handle: '@sftechweek',
-        //   site: '@site',
-        //   cardType: 'summary_large_image',
-        // }}
+        twitter={{
+          handle: '@sftechweek',
+          site: '@sftechweek',
+          cardType: 'summary_large_image',
+        }}
       />
-      {process.env.NODE_ENV === 'production' && <GoogleAnalytics trackPageViews />}
 
       <ChakraProvider theme={theme}>
         <Component {...pageProps} />

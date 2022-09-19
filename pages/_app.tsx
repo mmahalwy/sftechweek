@@ -1,7 +1,7 @@
-import { AppProps } from 'next/app';
+import { AppProps, NextWebVitalsMetric } from 'next/app';
 import Head from 'next/head';
 import { Box, ChakraProvider, extendTheme, StyleFunctionProps } from '@chakra-ui/react';
-import { GoogleAnalytics } from 'nextjs-google-analytics';
+import { GoogleAnalytics, event } from 'nextjs-google-analytics';
 
 import { DefaultSeo } from 'next-seo';
 import preview from '../public/images/sftw-preview.jpg';
@@ -65,6 +65,15 @@ const theme = extendTheme({
   },
 });
 
+export function reportWebVitals({ id, name, label, value }: NextWebVitalsMetric) {
+  event(name, {
+    category: label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
+    value: Math.round(name === 'CLS' ? value * 1000 : value), // values must be integers
+    label: id, // id unique to current page load
+    nonInteraction: true, // avoids affecting bounce rate.
+  });
+}
+
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
 
@@ -103,9 +112,7 @@ export default function App(props: AppProps) {
         //   cardType: 'summary_large_image',
         // }}
       />
-      {process.env.NODE_ENV === 'production' && (
-        <GoogleAnalytics trackPageViews gaMeasurementId="G-SZVDXNMKDG" />
-      )}
+      {process.env.NODE_ENV === 'production' && <GoogleAnalytics trackPageViews />}
 
       <ChakraProvider theme={theme}>
         <Component {...pageProps} />

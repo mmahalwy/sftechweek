@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+
 import portal from '../public/images/portal.svg';
 import star from '../public/images/star.svg';
 import sanfran from '../public/images/sanfran.svg';

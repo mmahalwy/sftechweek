@@ -78,7 +78,7 @@ export default function App(props: AppProps) {
       </Head>
       <DefaultSeo
         title="SF Tech Week"
-        description="Coming late October 2022"
+        description="November 1-6, 2022"
         canonical="https://sf-techweek.com"
         openGraph={{
           type: 'website',

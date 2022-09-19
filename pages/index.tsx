@@ -82,6 +82,15 @@ const FAQ = [
   },
 ];
 
+const SPONSORS = [
+  { width: { base: '44px', md: '80px' }, image: brex, href: 'https://brex.com/' },
+  { width: { base: '44px', md: '80px' }, image: airfoil, href: 'https://airfoil.studio' },
+  { width: { base: '24px', md: '40px' }, image: stonks, href: 'https://stonks.com' },
+  { width: { base: '80px', md: 140 }, image: betterleap, href: 'https://betterleap.com' },
+  { width: { base: '72px', md: 100 }, image: shepherd, href: 'https://withshepherd.com' },
+  { width: { base: '64px', md: 100 }, image: ondeck, href: 'https://beondeck.com' },
+];
+
 const Home: NextPage = () => {
   const { isOpen: isHostOpen, onOpen: onHostOpen, onClose: onHostClose } = useDisclosure();
   const {
@@ -181,24 +190,14 @@ const Home: NextPage = () => {
         py={{ base: 5, md: 5 }}
         flexWrap="wrap"
       >
-        <Box w={{ base: '60px', md: '80px' }}>
-          <Image src={brex} layout="responsive" />
-        </Box>
-        <Box w={{ base: '60px', md: '80px' }}>
-          <Image src={airfoil} layout="responsive" />
-        </Box>
-        <Box w={{ base: '32px', md: '40px' }}>
-          <Image src={stonks} layout="responsive" />
-        </Box>
-        <Box w={{ base: '64px', md: 100 }}>
-          <Image src={betterleap} layout="responsive" />
-        </Box>
-        <Box w={{ base: '64px', md: 100 }}>
-          <Image src={shepherd} layout="responsive" />
-        </Box>
-        <Box w={{ base: '64px', md: 100 }}>
-          <Image src={ondeck} layout="responsive" />
-        </Box>
+        {SPONSORS.map((item) => (
+          <Box w={item.width} key={item.image.src}>
+            <Link href={item.href} target="_blank">
+              <Image src={item.image} layout="responsive" />
+            </Link>
+          </Box>
+        ))}
+
         <Text color="white">+many more</Text>
       </HStack>
       <Stack

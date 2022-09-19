@@ -90,7 +90,7 @@ const SPONSORS = [
   { width: { base: '80px', md: 140 }, image: betterleap, href: 'https://betterleap.com' },
   { width: { base: '72px', md: 100 }, image: shepherd, href: 'https://withshepherd.com' },
   { width: { base: '64px', md: 100 }, image: ondeck, href: 'https://beondeck.com' },
-  { width: { base: '24px', md: '36px' }, image: the, href: 'https://the.com' },
+  { width: { base: '56px', md: '96px' }, image: the, href: 'https://the.com' },
 ];
 
 const Home: NextPage = () => {

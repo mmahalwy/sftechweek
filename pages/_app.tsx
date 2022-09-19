@@ -5,6 +5,7 @@ import { Box, ChakraProvider, extendTheme, StyleFunctionProps } from '@chakra-ui
 import { DefaultSeo } from 'next-seo';
 import preview from '../public/images/sftw-preview.jpg';
 import '../styles.css';
+import Script from 'next/script';
 
 const colors = {
   brand: {
@@ -101,6 +102,23 @@ export default function App(props: AppProps) {
         //   cardType: 'summary_large_image',
         // }}
       />
+      {process.env.NODE_ENV === 'production' && (
+        <>
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-SZVDXNMKDG"
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-SZVDXNMKDG');
+        `}
+          </Script>
+        </>
+      )}
       <ChakraProvider theme={theme}>
         <Component {...pageProps} />
       </ChakraProvider>

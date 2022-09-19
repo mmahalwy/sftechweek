@@ -5,7 +5,10 @@ import sanfran from '../public/images/sanfran.svg';
 import sanfranSmall from '../public/images/sanfran-small.svg';
 import chevronDown from '../public/images/chevron-down.svg';
 import brex from '../public/images/brex.png';
+import shepherd from '../public/images/shepherd.png';
 import airfoil from '../public/images/airfoil.svg';
+import betterleap from '../public/images/betterleap.svg';
+import ondeck from '../public/images/ondeck.svg';
 import stonks from '../public/images/stonks.webp';
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
@@ -158,23 +161,35 @@ const Home: NextPage = () => {
       </Box>
       <HStack
         bg="black"
-        height={{ base: 16, md: 20 }}
         justify="center"
-        gap={{ base: 4, md: 8 }}
+        gap={{ base: 2, md: 8 }}
         mt={{ base: 8, md: 0 }}
         mb={{ base: 8, md: 0 }}
-        ml={{ base: -6, md: 0 }}
-        mr={{ base: -6, md: 0 }}
+        ml={{ base: -4, md: 0 }}
+        mr={{ base: -4, md: 0 }}
+        px={{ base: 4, md: 8 }}
+        py={{ base: 5, md: 5 }}
+        flexWrap="wrap"
       >
-        <Box w={{ base: '60px', md: 100 }}>
+        <Box w={{ base: '60px', md: '80px' }}>
           <Image src={brex} layout="responsive" />
         </Box>
-        <Box w={{ base: '60px', md: 100 }}>
+        <Box w={{ base: '60px', md: '80px' }}>
           <Image src={airfoil} layout="responsive" />
         </Box>
         <Box w={{ base: '32px', md: '40px' }}>
           <Image src={stonks} layout="responsive" />
         </Box>
+        <Box w={{ base: '64px', md: 100 }}>
+          <Image src={betterleap} layout="responsive" />
+        </Box>
+        <Box w={{ base: '64px', md: 100 }}>
+          <Image src={shepherd} layout="responsive" />
+        </Box>
+        <Box w={{ base: '64px', md: 100 }}>
+          <Image src={ondeck} layout="responsive" />
+        </Box>
+        <Text color="white">+many more</Text>
       </HStack>
       <Stack
         border="2px solid #150E0A"

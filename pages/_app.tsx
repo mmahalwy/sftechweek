@@ -37,6 +37,7 @@ const theme = extendTheme({
       baseStyle: {
         field: {
           borderColor: '#150E0A',
+          borderRadius: 'none',
           _focusVisible: {
             borderColor: '#150E0A',
             boxShadow: `0px 1px 0px 0px #150E0A`,
@@ -44,11 +45,16 @@ const theme = extendTheme({
         },
       },
       variants: {
-        flushed: {
+        outline: {
           field: {
+            borderRadius: 0,
+            borderColor: 'rgba(0,0,0,0.2)',
+            _hover: {
+              borderColor: '#232325',
+            },
             _focusVisible: {
-              borderColor: '#150E0A',
-              boxShadow: `0px 1px 0px 0px #150E0A`,
+              borderColor: '#232325',
+              boxShadow: `0 0 0 1px #232325`,
             },
           },
         },

@@ -18,7 +18,7 @@ const Footer = () => {
       >
         <HStack>
           <Flex flex="1" justify="start">
-            Logo
+            SFTW
           </Flex>
           <HStack flex="1" justify="center" align="center">
             <Image src={heart} alt="heart" width={18} height={16} />
@@ -44,7 +44,7 @@ const Footer = () => {
       >
         <HStack>
           <Flex flex="1" justify="start">
-            Logo
+            SFTW
           </Flex>
           <HStack flex="1" justify="end">
             <Text fontSize="12px" fontFamily={'PF Tempesta Seven'}>

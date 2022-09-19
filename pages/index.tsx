@@ -5,6 +5,7 @@ import sanfran from '../public/images/sanfran.svg';
 import sanfranSmall from '../public/images/sanfran-small.svg';
 import chevronDown from '../public/images/chevron-down.svg';
 import brex from '../public/images/brex.png';
+import airfoil from '../public/images/airfoil.svg';
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import {
@@ -75,7 +76,7 @@ const Home: NextPage = () => {
   } = useDisclosure();
 
   return (
-    <Container maxW="100%" px="6" pt="6">
+    <Container maxW="100%" px={{ base: 4, md: 6 }} pt="6">
       <Navbar onRegisterOpen={onRegisterOpen} onHostOpen={onHostOpen} />
       <Box
         sx={{
@@ -89,8 +90,13 @@ const Home: NextPage = () => {
             'radial-gradient(98.71% 98.71% at 52.79% 99.41%, #FFC5C0 0%, rgba(255, 241, 192, 0) 100%)',
         }}
       >
-        <Stack spacing="8" zIndex={100}>
-          <Image src={portal} width={48} height={48} alt="portal" />
+        <Stack spacing="8" zIndex={100} align="center">
+          <Box display={{ base: 'none', md: 'block' }}>
+            <Image src={portal} width={48} height={48} alt="portal" />
+          </Box>
+          <Box display={{ base: 'block', md: 'none' }}>
+            <Image src={portal} width={32} height={32} alt="portal" />
+          </Box>
           <Stack spacing="6">
             <Stack spacing="4" align="center">
               <Heading fontSize={{ base: '16px', md: '25px' }}>November 1st - 6th</Heading>
@@ -118,9 +124,9 @@ const Home: NextPage = () => {
                 Register
               </Button>
             </div>
-            <Text fontWeight={700}>
+            <Text>
               Want to host an event?{' '}
-              <Link onClick={onHostOpen} textDecor="underline">
+              <Link onClick={onHostOpen} textDecor="underline" fontWeight={700}>
                 Sign up
               </Link>
             </Text>
@@ -153,14 +159,17 @@ const Home: NextPage = () => {
         bg="black"
         height={{ base: 16, md: 20 }}
         justify="center"
-        gap={'32px'}
+        gap={{ base: 4, md: 8 }}
         mt={{ base: 8, md: 0 }}
         mb={{ base: 8, md: 0 }}
         ml={{ base: -6, md: 0 }}
         mr={{ base: -6, md: 0 }}
       >
-        <Box w={100}>
+        <Box w={{ base: '60px', md: 100 }}>
           <Image src={brex} layout="responsive" />
+        </Box>
+        <Box w={{ base: '60px', md: 100 }}>
+          <Image src={airfoil} layout="responsive" />
         </Box>
       </HStack>
       <Stack
@@ -168,10 +177,17 @@ const Home: NextPage = () => {
         pt={{ base: 8, md: 24 }}
         pb={{ base: 0, md: 24 }}
         px={{ base: 0, md: '14' }}
+        mt={8}
         spacing="16"
+        bg="rgba(255,255,255,0.5)"
       >
-        <Stack spacing="9" px={{ base: 6, md: 0 }}>
-          <Image src={star} width={48} height={48} alt="portal" />
+        <Stack spacing="9" px={{ base: 6, md: 0 }} align="center">
+          <Box display={{ base: 'none', md: 'block' }}>
+            <Image src={star} width={48} height={48} alt="portal" />
+          </Box>
+          <Box display={{ base: 'block', md: 'none' }}>
+            <Image src={star} width={32} height={32} alt="portal" />
+          </Box>
           <Heading
             fontSize={{ base: '39px', md: '61px' }}
             lineHeight={{ base: '120%', md: '105%' }}
@@ -185,7 +201,7 @@ const Home: NextPage = () => {
             <Stack
               key={item.title}
               spacing="6"
-              bg="white"
+              bg="rgba(255,255,255,0.8)"
               position="relative"
               borderY="2px solid #150E0A"
               borderX={{ base: 'none', md: '2px solid #150E0A' }}

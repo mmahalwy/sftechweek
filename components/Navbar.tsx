@@ -16,6 +16,8 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import Image from 'next/image';
+import twitter from '../public/images/u_twitter.svg';
 
 export default function WithSubnavigation({
   onRegisterOpen,
@@ -61,7 +63,7 @@ export default function WithSubnavigation({
               fontFamily={'heading'}
               color={useColorModeValue('gray.800', 'white')}
             >
-              Logo
+              SFTW
             </Text>
           </Flex>
 
@@ -75,6 +77,9 @@ export default function WithSubnavigation({
           </Flex>
 
           <Stack flex={1} justify={'flex-end'} direction={'row'} spacing={6}>
+            <Link href="https://twitter.com/sftechweek" target="_blank" display="flex">
+              <Image src={twitter} alt="heart" width={24} height={24} />
+            </Link>
             <Button
               display={{ base: 'inline-flex', md: 'inline-flex' }}
               fontSize={'sm'}
@@ -84,6 +89,7 @@ export default function WithSubnavigation({
               border="2px solid black"
               as="a"
               onClick={onRegisterOpen}
+              size="lg"
             >
               Register
             </Button>

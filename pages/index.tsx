@@ -70,6 +70,16 @@ const FAQ = [
     description:
       'SFTW is organized by a number of VCs, entrepreneurs, and community leaders in the Bay Area.',
   },
+  {
+    title: 'What kind of events should I expect?',
+    description:
+      'Events will range from fireside chats to expert panels to workshops. There will be something for everyone.',
+  },
+  {
+    title: 'I want to host an event, what do I do?',
+    description:
+      'Fill in the sign up form and we’ll be in touch with you shortly. Otherwise, reach out to us via Twitter',
+  },
 ];
 
 const Home: NextPage = () => {
@@ -122,7 +132,6 @@ const Home: NextPage = () => {
                 as="a"
                 colorScheme={'blackAlpha'}
                 bg="black"
-                href="#"
                 size="lg"
                 onClick={onRegisterOpen}
               >

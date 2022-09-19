@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Box, ChakraProvider, extendTheme, StyleFunctionProps } from '@chakra-ui/react';
+import { GoogleAnalytics } from 'nextjs-google-analytics';
 
 import { DefaultSeo } from 'next-seo';
 import preview from '../public/images/sftw-preview.jpg';
@@ -103,22 +104,9 @@ export default function App(props: AppProps) {
         // }}
       />
       {process.env.NODE_ENV === 'production' && (
-        <>
-          <Script
-            src="https://www.googletagmanager.com/gtag/js?id=G-SZVDXNMKDG"
-            strategy="afterInteractive"
-          />
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-SZVDXNMKDG');
-        `}
-          </Script>
-        </>
+        <GoogleAnalytics trackPageViews gaMeasurementId="G-SZVDXNMKDG" />
       )}
+
       <ChakraProvider theme={theme}>
         <Component {...pageProps} />
       </ChakraProvider>

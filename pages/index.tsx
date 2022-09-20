@@ -132,6 +132,7 @@ const Home: NextPage = () => {
                 fontSize={{ base: '39px', md: '95px' }}
                 lineHeight={{ base: '120%', md: '105%' }}
                 textAlign="center"
+                as="h1"
               >
                 San Francisco
                 <br />

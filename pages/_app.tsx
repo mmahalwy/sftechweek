@@ -90,13 +90,14 @@ export default function App(props: AppProps) {
       {process.env.NODE_ENV === 'production' && <GoogleAnalytics trackPageViews />}
       <DefaultSeo
         title="SF Tech Week"
-        description="November 1-6, 2022"
+        description="Happening in SF, November 1-6, 2022"
         canonical="https://sf-techweek.com"
         openGraph={{
           type: 'website',
           locale: 'en_IE',
           url: 'https://sf-techweek.com',
           site_name: 'SF Tech Week',
+
           images: [
             {
               url: `https://sf-techweek.com${preview.src}`,
@@ -109,9 +110,12 @@ export default function App(props: AppProps) {
         }}
         twitter={{
           handle: '@sftechweek',
-          site: '@sftechweek',
           cardType: 'summary_large_image',
         }}
+        additionalMetaTags={[
+          { name: 'twitter:image', content: `https://sf-techweek.com${preview.src}` },
+          { name: 'twitter:title', content: 'SF Tech Week' },
+        ]}
       />
 
       <ChakraProvider theme={theme}>

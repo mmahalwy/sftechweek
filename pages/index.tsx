@@ -11,6 +11,7 @@ import airfoil from '../public/images/airfoil.svg';
 import betterleap from '../public/images/betterleap.svg';
 import ondeck from '../public/images/ondeck.svg';
 import the from '../public/images/the.svg';
+import finch from '../public/images/finch.svg';
 import stonks from '../public/images/stonks.webp';
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
@@ -91,6 +92,7 @@ const SPONSORS = [
   { width: { base: '72px', md: 100 }, image: shepherd, href: 'https://withshepherd.com' },
   { width: { base: '64px', md: 100 }, image: ondeck, href: 'https://beondeck.com' },
   { width: { base: '56px', md: '96px' }, image: the, href: 'https://the.com' },
+  { width: { base: '48px', md: '72px' }, image: finch, href: 'https://tryfinch.com' },
 ];
 
 const Home: NextPage = () => {

@@ -21,7 +21,13 @@ import { useForm } from 'react-hook-form';
 import Image from 'next/image';
 import heart from '../public/images/heart.svg';
 
-type FieldValues = { email: string; firstName: string; lastName: string; location: string };
+type FieldValues = {
+  email: string;
+  firstName: string;
+  lastName: string;
+  location: string;
+  linkedin: string;
+};
 
 const HostEvent = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
   const [formSuccess, setFormSuccess] = useState(false);
@@ -120,6 +126,19 @@ const HostEvent = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                     />
                     <FormErrorMessage>
                       {errors.location && errors.location.message}
+                    </FormErrorMessage>
+                  </FormControl>
+                  <FormControl isInvalid={!!errors.linkedin}>
+                    <FormLabel>LinkedIn</FormLabel>
+                    <Input
+                      id="linkedin"
+                      placeholder="LinkedIn Url"
+                      {...register('linkedin', {
+                        required: 'This is required',
+                      })}
+                    />
+                    <FormErrorMessage>
+                      {errors.linkedin && errors.linkedin.message}
                     </FormErrorMessage>
                   </FormControl>
                 </VStack>

@@ -35,6 +35,16 @@ const theme = extendTheme({
         fontWeight: 700,
       },
     },
+    Checkbox: {
+      baseStyle: {
+        control: {
+          _checked: {
+            bg: '#150E0A',
+            borderColor: '#150E0A',
+          },
+        },
+      },
+    },
     Input: {
       baseStyle: {
         field: {

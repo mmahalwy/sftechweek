@@ -1,5 +1,7 @@
 import {
   Button,
+  Checkbox,
+  CheckboxGroup,
   FormControl,
   FormErrorMessage,
   FormLabel,
@@ -17,7 +19,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import Image from 'next/image';
 import heart from '../public/images/heart.svg';
 
@@ -27,6 +29,7 @@ type FieldValues = {
   lastName: string;
   location: string;
   linkedin: string;
+  interestedIn: string[];
 };
 
 const HostEvent = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
@@ -35,8 +38,13 @@ const HostEvent = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
   const {
     handleSubmit,
     register,
+    control,
     formState: { errors, isSubmitting },
-  } = useForm<FieldValues>();
+  } = useForm<FieldValues>({
+    defaultValues: {
+      interestedIn: ['hosting'],
+    },
+  });
 
   const onSubmit = async (values: FieldValues) => {
     await fetch('/api/host-event', {
@@ -140,6 +148,21 @@ const HostEvent = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                     <FormErrorMessage>
                       {errors.linkedin && errors.linkedin.message}
                     </FormErrorMessage>
+                  </FormControl>
+                  <FormControl>
+                    <FormLabel>Interested in</FormLabel>
+                    <Controller
+                      name="interestedIn"
+                      control={control}
+                      render={({ field }) => (
+                        <CheckboxGroup {...field}>
+                          <HStack>
+                            <Checkbox value="sponsoring">Sponsoring an event</Checkbox>
+                            <Checkbox value="hosting">Hosting an event</Checkbox>
+                          </HStack>
+                        </CheckboxGroup>
+                      )}
+                    />
                   </FormControl>
                 </VStack>
               </ModalBody>

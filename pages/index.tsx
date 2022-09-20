@@ -7,6 +7,7 @@ import sanfranSmall from '../public/images/sanfran-small.svg';
 import chevronDown from '../public/images/chevron-down.svg';
 import brex from '../public/images/brex.png';
 import shepherd from '../public/images/shepherd.png';
+import signalfire from '../public/images/signalfire.png';
 import airfoil from '../public/images/airfoil.svg';
 import betterleap from '../public/images/betterleap.svg';
 import ondeck from '../public/images/ondeck.svg';
@@ -85,6 +86,7 @@ const FAQ = [
 ];
 
 const SPONSORS = [
+  { width: { base: '56px', md: '120px' }, image: signalfire, href: 'https://signalfire.com/' },
   { width: { base: '44px', md: '80px' }, image: brex, href: 'https://brex.com/' },
   { width: { base: '44px', md: '80px' }, image: airfoil, href: 'https://airfoil.studio' },
   { width: { base: '24px', md: '40px' }, image: stonks, href: 'https://stonks.com' },
@@ -149,13 +151,13 @@ const Home: NextPage = () => {
                 size="lg"
                 onClick={onRegisterOpen}
               >
-                Register
+                Register to attend
               </Button>
             </div>
             <Text>
               Want to host an event?{' '}
               <Link onClick={onHostOpen} textDecor="underline" fontWeight={700}>
-                Sign up
+                Host an event
               </Link>
             </Text>
           </Stack>
@@ -330,7 +332,7 @@ const Home: NextPage = () => {
           </Heading>
 
           <Button colorScheme="whiteAlpha" bg="white" color="black" size="lg" onClick={onHostOpen}>
-            Register
+            Host an event
           </Button>
         </Stack>
       </SimpleGrid>

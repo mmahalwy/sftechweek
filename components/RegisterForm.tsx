@@ -1,4 +1,5 @@
 import {
+  Text,
   Button,
   FormControl,
   FormErrorMessage,
@@ -141,6 +142,11 @@ const RegisterHost = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
                       {errors.linkedin && errors.linkedin.message}
                     </FormErrorMessage>
                   </FormControl>
+                  <Text fontSize="sm" colorScheme="blackAlpha">
+                    Information provided will be shared with SF Tech Week’s partners for the purpose
+                    of sending event invites and other relevant information. We will not sell or
+                    share this information with any third parties.
+                  </Text>
                 </VStack>
               </ModalBody>
 

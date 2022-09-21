@@ -8,6 +8,8 @@ import chevronDown from '../public/images/chevron-down.svg';
 import brex from '../public/images/brex.png';
 import shepherd from '../public/images/shepherd.png';
 import signalfire from '../public/images/signalfire.png';
+import mage from '../public/images/mage.png';
+import threeplus from '../public/images/3plus.png';
 import airfoil from '../public/images/airfoil.svg';
 import betterleap from '../public/images/betterleap.svg';
 import ondeck from '../public/images/ondeck.svg';
@@ -89,7 +91,9 @@ const FAQ = [
 
 const SPONSORS = [
   { height: { base: '56px', md: '120px' }, image: signalfire, href: 'https://signalfire.com/' },
+  { height: { base: '44px', md: '80px' }, image: threeplus, href: 'https://3plus.vc/' },
   { height: { base: '44px', md: '80px' }, image: brex, href: 'https://brex.com/' },
+  { height: { base: '64px', md: 100 }, image: ondeck, href: 'https://beondeck.com' },
   { height: { base: '44px', md: '80px' }, image: airfoil, href: 'https://airfoil.studio' },
   { height: { base: '24px', md: '40px' }, image: stonks, href: 'https://stonks.com' },
   {
@@ -99,9 +103,10 @@ const SPONSORS = [
   },
   { height: { base: '80px', md: 140 }, image: betterleap, href: 'https://betterleap.com' },
   { height: { base: '72px', md: 100 }, image: shepherd, href: 'https://withshepherd.com' },
-  { height: { base: '64px', md: 100 }, image: ondeck, href: 'https://beondeck.com' },
+
   { height: { base: '56px', md: '96px' }, image: the, href: 'https://the.com' },
   { height: { base: '48px', md: '72px' }, image: finch, href: 'https://tryfinch.com' },
+  { height: { base: '48px', md: '72px' }, image: mage, href: 'https://mage.ai' },
 ];
 
 const Home: NextPage = () => {

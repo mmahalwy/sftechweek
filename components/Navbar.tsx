@@ -18,6 +18,7 @@ import {
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import Image from 'next/image';
 import twitter from '../public/images/u_twitter.svg';
+import sftw from '../public/images/sftw-logo.svg';
 
 export default function WithSubnavigation({
   onRegisterOpen,
@@ -63,7 +64,7 @@ export default function WithSubnavigation({
               fontFamily={'heading'}
               color={useColorModeValue('gray.800', 'white')}
             >
-              SFTW
+              <Image src={sftw} width={56} height={35} />
             </Text>
           </Flex>
 

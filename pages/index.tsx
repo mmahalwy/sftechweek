@@ -13,7 +13,8 @@ import betterleap from '../public/images/betterleap.svg';
 import ondeck from '../public/images/ondeck.svg';
 import the from '../public/images/the.svg';
 import finch from '../public/images/finch.svg';
-import stonks from '../public/images/stonks.webp';
+import standardmetrics from '../public/images/standardmetrics.svg';
+import stonks from '../public/images/stonks.png';
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import {
@@ -35,6 +36,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import Image from 'next/image';
+import ImageFuture from 'next/future/image';
 import Footer from '../components/Footer';
 import HostForm from '../components/HostForm';
 import RegisterForm from '../components/RegisterForm';
@@ -86,15 +88,20 @@ const FAQ = [
 ];
 
 const SPONSORS = [
-  { width: { base: '56px', md: '120px' }, image: signalfire, href: 'https://signalfire.com/' },
-  { width: { base: '44px', md: '80px' }, image: brex, href: 'https://brex.com/' },
-  { width: { base: '44px', md: '80px' }, image: airfoil, href: 'https://airfoil.studio' },
-  { width: { base: '24px', md: '40px' }, image: stonks, href: 'https://stonks.com' },
-  { width: { base: '80px', md: 140 }, image: betterleap, href: 'https://betterleap.com' },
-  { width: { base: '72px', md: 100 }, image: shepherd, href: 'https://withshepherd.com' },
-  { width: { base: '64px', md: 100 }, image: ondeck, href: 'https://beondeck.com' },
-  { width: { base: '56px', md: '96px' }, image: the, href: 'https://the.com' },
-  { width: { base: '48px', md: '72px' }, image: finch, href: 'https://tryfinch.com' },
+  { height: { base: '56px', md: '120px' }, image: signalfire, href: 'https://signalfire.com/' },
+  { height: { base: '44px', md: '80px' }, image: brex, href: 'https://brex.com/' },
+  { height: { base: '44px', md: '80px' }, image: airfoil, href: 'https://airfoil.studio' },
+  { height: { base: '24px', md: '40px' }, image: stonks, href: 'https://stonks.com' },
+  {
+    height: { base: '24px', md: '40px' },
+    image: standardmetrics,
+    href: 'https://standardmetrics.io',
+  },
+  { height: { base: '80px', md: 140 }, image: betterleap, href: 'https://betterleap.com' },
+  { height: { base: '72px', md: 100 }, image: shepherd, href: 'https://withshepherd.com' },
+  { height: { base: '64px', md: 100 }, image: ondeck, href: 'https://beondeck.com' },
+  { height: { base: '56px', md: '96px' }, image: the, href: 'https://the.com' },
+  { height: { base: '48px', md: '72px' }, image: finch, href: 'https://tryfinch.com' },
 ];
 
 const Home: NextPage = () => {
@@ -188,7 +195,8 @@ const Home: NextPage = () => {
       <HStack
         bg="black"
         justify="center"
-        gap={{ base: 2, md: 8 }}
+        spacing={{ base: 2, md: 6 }}
+        gap={{ base: 3, md: 0 }}
         mt={{ base: 8, md: 0 }}
         mb={{ base: 8, md: 0 }}
         ml={{ base: -4, md: 0 }}
@@ -198,14 +206,18 @@ const Home: NextPage = () => {
         flexWrap="wrap"
       >
         {SPONSORS.map((item) => (
-          <Box w={item.width} key={item.image.src}>
-            <Link href={item.href} target="_blank">
-              <Image src={item.image} layout="responsive" />
-            </Link>
-          </Box>
+          <Link href={item.href} target="_blank" key={item.image.src}>
+            <Box
+              as={ImageFuture}
+              src={item.image}
+              alt={item.href}
+              height={{ base: '16px', md: '20px' }}
+              width="auto"
+            />
+          </Link>
         ))}
 
-        <Text color="white">+many more</Text>
+        <Text color="white">+more</Text>
       </HStack>
       <Stack
         border="2px solid #150E0A"

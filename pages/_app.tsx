@@ -26,6 +26,10 @@ const theme = extendTheme({
       body: {
         bg: props.theme.colors.brand[900],
       },
+      '*': {
+        '-webkit-font-smoothing': 'antialiased',
+        '-moz-osx-font-smoothing': 'grayscale',
+      },
     }),
   },
   components: {

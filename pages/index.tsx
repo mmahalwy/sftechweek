@@ -14,12 +14,11 @@ import mage from '../public/images/mage.png';
 import threeplus from '../public/images/3plus.png';
 import airfoil from '../public/images/airfoil.svg';
 import betterleap from '../public/images/betterleap.svg';
-import ondeck from '../public/images/ondeck.svg';
 import the from '../public/images/the.svg';
+import ondeck from '../public/images/ondeck.svg';
 import finch from '../public/images/finch.svg';
 import standardmetrics from '../public/images/standardmetrics.svg';
 import stonks from '../public/images/stonks.png';
-import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import {
   Accordion,
@@ -39,6 +38,7 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
+import { event } from 'nextjs-google-analytics';
 import Image from 'next/image';
 import ImageFuture from 'next/future/image';
 import Footer from '../components/Footer';
@@ -97,7 +97,7 @@ const SPONSORS = [
   { image: brex, href: 'https://brex.com/' },
   { image: m13, href: 'https://m13.co/' },
   { image: jllspark, href: 'https://spark.jllt.com/' },
-  { age: ondeck, href: 'https://beondeck.com' },
+  { image: ondeck, href: 'https://beondeck.com' },
   { image: airfoil, href: 'https://airfoil.studio' },
   { image: stonks, href: 'https://stonks.com' },
   {
@@ -214,7 +214,16 @@ const Home: NextPage = () => {
         flexWrap="wrap"
       >
         {SPONSORS.map((item) => (
-          <Link href={item.href} target="_blank" key={item.image.src}>
+          <Link
+            href={item.href}
+            target="_blank"
+            key={item.image?.src}
+            onClick={() => {
+              event('sponsor_clicked', {
+                label: item.href,
+              });
+            }}
+          >
             <Box
               as={ImageFuture}
               src={item.image}

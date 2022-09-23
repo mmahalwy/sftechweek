@@ -113,7 +113,6 @@ const SPONSORS = [
 ];
 
 const Home: NextPage = () => {
-  const { isOpen: isHostOpen, onOpen: onHostOpen, onClose: onHostClose } = useDisclosure();
   const {
     isOpen: isRegisterOpen,
     onOpen: onRegisterOpen,
@@ -122,7 +121,7 @@ const Home: NextPage = () => {
 
   return (
     <Container maxW="100%" px={{ base: 4, md: 6 }} pt="6">
-      <Navbar onRegisterOpen={onRegisterOpen} onHostOpen={onHostOpen} />
+      <Navbar onRegisterOpen={onRegisterOpen} />
       <Box
         sx={{
           position: 'relative',
@@ -171,7 +170,12 @@ const Home: NextPage = () => {
             </div>
             <Text>
               Want to host an event?{' '}
-              <Link onClick={onHostOpen} textDecor="underline" fontWeight={700}>
+              <Link
+                textDecor="underline"
+                fontWeight={700}
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfTnPV_AkD34XqLKyjjQjjPllVwLRkdi2wWacBF2TLp1ipE_w/viewform"
+                target="_blank"
+              >
                 Host an event
               </Link>
             </Text>
@@ -360,12 +364,19 @@ const Home: NextPage = () => {
             Hosting a community meetup?
           </Heading>
 
-          <Button colorScheme="whiteAlpha" bg="white" color="black" size="lg" onClick={onHostOpen}>
+          <Button
+            colorScheme="whiteAlpha"
+            bg="white"
+            color="black"
+            size="lg"
+            as="a"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfTnPV_AkD34XqLKyjjQjjPllVwLRkdi2wWacBF2TLp1ipE_w/viewform"
+            target="_blank"
+          >
             Host an event
           </Button>
         </Stack>
       </SimpleGrid>
-      <HostForm isOpen={isHostOpen} onClose={onHostClose} />
       <RegisterForm isOpen={isRegisterOpen} onClose={onRegisterClose} />
       <Footer />
     </Container>

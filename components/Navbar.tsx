@@ -20,13 +20,7 @@ import Image from 'next/image';
 import twitter from '../public/images/u_twitter.svg';
 import sftw from '../public/images/sftw-logo.svg';
 
-export default function WithSubnavigation({
-  onRegisterOpen,
-  onHostOpen,
-}: {
-  onRegisterOpen: () => void;
-  onHostOpen: () => void;
-}) {
+export default function WithSubnavigation({ onRegisterOpen }: { onRegisterOpen: () => void }) {
   const { isOpen, onToggle } = useDisclosure();
 
   return (

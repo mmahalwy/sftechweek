@@ -21,6 +21,8 @@ import standardmetrics from '../public/images/standardmetrics.svg';
 import stonks from '../public/images/stonks.png';
 import wework from '../public/images/wework.png';
 import dfaCapital from '../public/images/dfa-capital.png';
+import susa from '../public/images/susa.svg';
+import crv from '../public/images/crv.jpeg';
 import Navbar from '../components/Navbar';
 import {
   Accordion,
@@ -113,6 +115,8 @@ const SPONSORS = [
   { image: finch, href: 'https://tryfinch.com' },
   { image: mage, href: 'https://mage.ai' },
   { image: dfaCapital, href: 'https://www.dfacapital.co' },
+  { image: susa, href: 'https://susaventures.com' },
+  { image: crv, href: 'https://www.crv.com/' },
   { image: wework, href: 'https://www.wework.com' },
 ];
 

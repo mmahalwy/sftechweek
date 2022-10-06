@@ -119,7 +119,7 @@ const About: NextPage = () => {
            <Heading as='h2' pt={vertPadding}>Who Are We?</Heading>
            <Wrap pt={vertPadding} justify="center">
                 {faceCardList.map((faceCardInfo =>  (
-                            <WrapItem>
+                            <WrapItem key={faceCardInfo.name}>
                                 <FaceCard {...faceCardInfo} />
                             </WrapItem>
                         )

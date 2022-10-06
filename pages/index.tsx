@@ -40,7 +40,6 @@ import {
 import { event } from 'nextjs-google-analytics';
 import Image from 'next/image';
 import ImageFuture from 'next/future/image';
-import RegisterForm from '../components/RegisterForm';
 
 const ValueProp = [
   {

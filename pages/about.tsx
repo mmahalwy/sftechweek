@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import type { FaceCardInfo } from '../types';
 
-import { Heading, HStack, Wrap,  WrapItem } from '@chakra-ui/react'
+import { Heading, Wrap,  WrapItem } from '@chakra-ui/react'
 import FaceCard from '../components/FaceCard';
 
 const vertPadding = '56px';
@@ -116,7 +116,7 @@ const faceCardList: FaceCardInfo[] = [
 const About: NextPage = () => {
     return ( 
         <>
-           <Heading as='h2' pt={vertPadding}>Who Are We?</Heading>
+           <Heading as="h2" pt={vertPadding}>Who Are We?</Heading>
            <Wrap pt={vertPadding} justify="center">
                 {faceCardList.map((faceCardInfo =>  (
                             <WrapItem key={faceCardInfo.name}>

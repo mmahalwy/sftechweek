@@ -13,7 +13,7 @@ const FaceCard = (props:FaceCardInfo) => {
         <Box maxW={"380px"} px={4} pt={4} m={2} border="2px solid #150E0A">
             <ChakraImage border="2px solid #150E0A" src={imgSrc} alt={name} w="340px" h="255px" />
             <Stack py={5}>
-                <Text fontSize='xl'>{name}</Text>
+                <Text fontSize='2xl' fontFamily="Recoleta">{name}</Text>
                 <Text>{title} {company && `@ ${company}`}</Text>
                 <HStack>
                     {twitterHref && 

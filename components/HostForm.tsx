@@ -15,7 +15,6 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  useDisclosure,
   VStack,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';

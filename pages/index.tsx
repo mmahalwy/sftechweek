@@ -22,17 +22,13 @@ import stonks from '../public/images/stonks.png';
 import wework from '../public/images/wework.png';
 import dfaCapital from '../public/images/dfa-capital.png';
 import crv from '../public/images/crv.jpeg';
-import Navbar from '../components/Navbar';
 import {
   Accordion,
   AccordionButton,
-  AccordionIcon,
   AccordionItem,
   AccordionPanel,
   Box,
   Button,
-  Container,
-  Flex,
   Heading,
   HStack,
   Link,
@@ -44,8 +40,6 @@ import {
 import { event } from 'nextjs-google-analytics';
 import Image from 'next/image';
 import ImageFuture from 'next/future/image';
-import Footer from '../components/Footer';
-import HostForm from '../components/HostForm';
 import RegisterForm from '../components/RegisterForm';
 
 const ValueProp = [
@@ -118,16 +112,15 @@ const SPONSORS = [
   { image: wework, href: 'https://www.wework.com' },
 ];
 
-const Home: NextPage = () => {
-  const {
-    isOpen: isRegisterOpen,
-    onOpen: onRegisterOpen,
-    onClose: onRegisterClose,
-  } = useDisclosure();
+interface Props {
+  onRegisterOpen: () => void
+}
+
+const Home: NextPage<Props> = (props) => {
+  const { onRegisterOpen } = props;
 
   return (
-    <Container maxW="100%" px={{ base: 4, md: 6 }} pt="6">
-      <Navbar onRegisterOpen={onRegisterOpen} />
+    <>
       <Box
         sx={{
           position: 'relative',
@@ -170,6 +163,7 @@ const Home: NextPage = () => {
                 bg="black"
                 size="lg"
                 onClick={onRegisterOpen}
+                cursor="pointer"
               >
                 Register to attend
               </Button>
@@ -383,9 +377,7 @@ const Home: NextPage = () => {
           </Button>
         </Stack>
       </SimpleGrid>
-      <RegisterForm isOpen={isRegisterOpen} onClose={onRegisterClose} />
-      <Footer />
-    </Container>
+    </>
   );
 };
 

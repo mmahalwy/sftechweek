@@ -91,7 +91,7 @@ const faceCardList: FaceCardInfo[] = [
         name: "Jesse Colligan",
         title: "Software Engineer",
         company: "Tesla",
-        imgSrc: "https://media-exp1.licdn.com/dms/image/C4D03AQG015xXTVSGgw/profile-displayphoto-shrink_400_400/0/1524346377923?e=1670457600&v=beta&t=8OaBnINfCbwe8heQZg__LfFsWs3AbPAezfyZkzaqed4",
+        imgSrc: "https://media-exp1.licdn.com/dms/image/D5603AQGCLudZL18j5A/profile-displayphoto-shrink_400_400/0/1665109044914?e=1671062400&v=beta&t=PSlDi2su2g6lxV8c5Kg5GwB6dVwMUaTGr5tFCjBXmP4",
         twitterHref: "https://twitter.com/jcolla_holla",
         linkedInHref: "https://www.linkedin.com/in/jessecolligan/",
     },
@@ -117,7 +117,7 @@ const About: NextPage = () => {
     return ( 
         <>
            <Heading as="h2" pt={vertPadding}>Who Are We?</Heading>
-           <Wrap pt={vertPadding} justify="center">
+           <Wrap pt={vertPadding} justify="left">
                 {faceCardList.map((faceCardInfo =>  (
                             <WrapItem key={faceCardInfo.name}>
                                 <FaceCard {...faceCardInfo} />

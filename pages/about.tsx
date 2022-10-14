@@ -117,7 +117,7 @@ const About: NextPage = () => {
     return ( 
         <>
            <Heading as="h2" pt={vertPadding}>Who Are We?</Heading>
-           <Wrap pt={vertPadding} justify="left" spacing="24px">
+           <Wrap pt={vertPadding} justify="space-between" spacing="24px">
                 {faceCardList.map((faceCardInfo =>  (
                             <WrapItem key={faceCardInfo.name}>
                                 <FaceCard {...faceCardInfo} />

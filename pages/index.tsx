@@ -20,7 +20,6 @@ import finch from '../public/images/finch.svg';
 import standardmetrics from '../public/images/standardmetrics.svg';
 import stonks from '../public/images/stonks.png';
 import wework from '../public/images/wework.png';
-import dfaCapital from '../public/images/dfa-capital.png';
 import crv from '../public/images/crv.jpeg';
 import Navbar from '../components/Navbar';
 import {
@@ -113,7 +112,6 @@ const SPONSORS = [
   { image: the, href: 'https://the.com' },
   { image: finch, href: 'https://tryfinch.com' },
   { image: mage, href: 'https://mage.ai' },
-  { image: dfaCapital, href: 'https://www.dfacapital.co' },
   { image: crv, href: 'https://www.crv.com/' },
   { image: wework, href: 'https://www.wework.com' },
 ];

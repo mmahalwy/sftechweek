@@ -1,12 +1,14 @@
 import { AppProps, NextWebVitalsMetric } from 'next/app';
 import Head from 'next/head';
-import { Box, ChakraProvider, extendTheme, StyleFunctionProps } from '@chakra-ui/react';
+import { Box, ChakraProvider, extendTheme, StyleFunctionProps, Container, useDisclosure } from '@chakra-ui/react';
 import { GoogleAnalytics, event } from 'nextjs-google-analytics';
 
 import { DefaultSeo } from 'next-seo';
 import preview from '../public/images/sftw-preview.jpg';
 import '../styles.css';
-import Script from 'next/script';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import RegisterForm from '../components/RegisterForm';
 
 const colors = {
   brand: {
@@ -90,6 +92,12 @@ export function reportWebVitals({ id, name, label, value }: NextWebVitalsMetric)
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
+  const {
+    isOpen: isRegisterOpen,
+    onOpen: onRegisterOpen,
+    onClose: onRegisterClose,
+  } = useDisclosure();
+
 
   return (
     <>
@@ -133,7 +141,12 @@ export default function App(props: AppProps) {
       />
 
       <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
+        <Container maxW="100%" px={{ base: 4, md: 6 }} pt="6">
+          <Navbar onRegisterOpen={onRegisterOpen} />
+            <Component {...pageProps} onRegisterOpen={onRegisterOpen} />
+          <Footer />
+          <RegisterForm isOpen={isRegisterOpen} onClose={onRegisterClose} />
+        </Container>
       </ChakraProvider>
     </>
   );

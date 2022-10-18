@@ -22,7 +22,9 @@ const Footer = () => {
           </Flex>
           <HStack flex="1" justify="center" align="center">
             <Image src={heart} alt="heart" width={18} height={16} />
-            <Text fontFamily={'PF Tempesta Seven'}>Designed by Airfoil</Text>
+            <Link href="airfoil.studio" target="_blank">
+              <Text fontFamily={'PF Tempesta Seven'}>Designed by Airfoil</Text>
+            </Link>
           </HStack>
           <HStack flex="1" justify="end">
             <Link href="https://twitter.com/sftechweek" target="_blank" display="flex">
@@ -59,9 +61,11 @@ const Footer = () => {
           </Link>
           <HStack flex="1" justify="end" align="center">
             <Image src={heart} alt="heart" width={13.5} height={12} />
-            <Text fontSize="12px" fontFamily={'PF Tempesta Seven'}>
-              Designed by Airfoil
-            </Text>
+            <Link href="airfoil.studio" target="_blank">
+              <Text fontSize="12px" fontFamily={'PF Tempesta Seven'}>
+                Designed by Airfoil
+              </Text>
+            </Link>
           </HStack>
         </HStack>
       </VStack>

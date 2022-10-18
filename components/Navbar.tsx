@@ -85,6 +85,7 @@ export default function WithSubnavigation({ onRegisterOpen }: { onRegisterOpen: 
               as="a"
               onClick={onRegisterOpen}
               size="lg"
+              cursor="pointer"
             >
               Register
             </Button>

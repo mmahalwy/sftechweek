@@ -177,7 +177,7 @@ const Home: NextPage<Props> = (props) => {
                 mx="2"
                 my={{ base: '1', md: '0' }}
               >
-                See Event Schedule
+                See event schedule
               </Button>
             </Box>
             <Text>

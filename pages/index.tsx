@@ -153,7 +153,7 @@ const Home: NextPage<Props> = (props) => {
             </Stack>
           </Stack>
           <Stack spacing="6" align="center">
-            <div>
+            <Box display="flex" flexWrap="wrap" justifyContent="center">
               <Button
                 as="a"
                 colorScheme={'blackAlpha'}
@@ -161,10 +161,25 @@ const Home: NextPage<Props> = (props) => {
                 size="lg"
                 onClick={onRegisterOpen}
                 cursor="pointer"
+                mx="2"
+                my={{ base: '1', md: '0' }}
               >
                 Register to attend
               </Button>
-            </div>
+              <Button
+                as="a"
+                color="black"
+                bgGradient="radial-gradient(98.71% 98.71% at 52.79% 99.41%, #FFC5C0 0%, #FFF1C0 100%, #FFF1C0 100%)"
+                border="2px solid black"
+                size="lg"
+                href="https://lu.ma/event-group/evgrp-MSZlmyEPurQp9zX"
+                cursor="pointer"
+                mx="2"
+                my={{ base: '1', md: '0' }}
+              >
+                See event schedule
+              </Button>
+            </Box>
             <Text>
               Want to host an event?{' '}
               <Link

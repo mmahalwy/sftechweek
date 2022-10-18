@@ -259,6 +259,10 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
+    label: 'Schedule',
+    href: 'https://lu.ma/event-group/evgrp-MSZlmyEPurQp9zX',
+  },
+  {
     label: 'FAQ',
     href: '#faq',
   },

@@ -138,6 +138,9 @@ const About: NextPage = () => {
       <Heading as="h2" pt={vertPadding}>
         Who Are We?
       </Heading>
+      <Heading as='h5' size='sm' pt={3}>
+        SF Tech Week is organized by a number of VCs, entrepreneurs, and community leaders in the Bay Area.
+      </Heading>
       <SimpleGrid pt={vertPadding} spacing="24px" columns={{ base: 1, md: 4 }}>
         {faceCardList.map((faceCardInfo) => (
           <FaceCard {...faceCardInfo} key={faceCardInfo.name} />

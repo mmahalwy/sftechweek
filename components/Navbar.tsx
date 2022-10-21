@@ -270,4 +270,8 @@ const NAV_ITEMS: Array<NavItem> = [
     label: 'Host event',
     href: '#host',
   },
+  {
+    label: 'Organizers',
+    href: '/about',
+  },
 ];

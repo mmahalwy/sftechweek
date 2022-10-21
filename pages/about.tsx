@@ -86,6 +86,14 @@ const faceCardList: FaceCardInfo[] = [
     linkedInHref: '',
   },
   {
+    name: 'Josh Constine',
+    title: 'Venture Partner',
+    company: 'SignalFire',
+    imgSrc: 'https://media-exp1.licdn.com/dms/image/C5603AQGggkXC-oYeiA/profile-displayphoto-shrink_800_800/0/1550706238611?e=1671667200&v=beta&t=LoJdXcITep0_8fijQqTOBmGRQD02pQjfmnKm157WseM',
+    twitterHref: 'https://twitter.com/JoshConstine',
+    linkedInHref: 'https://www.linkedin.com/in/joshconstine/',
+  },
+  {
     name: 'Mel Flores Salman',
     title: 'Event Marketing',
     company: '',
@@ -112,6 +120,15 @@ const faceCardList: FaceCardInfo[] = [
       'https://media-exp1.licdn.com/dms/image/C5603AQGS1vjTEDrnZQ/profile-displayphoto-shrink_800_800/0/1657608430559?e=1670457600&v=beta&t=kWxCDnpEp5N2HmS3_PqCve8jVVHzRqyuneUh-hJSySw',
     twitterHref: '',
     linkedInHref: 'https://www.linkedin.com/in/zuleika-tesei/',
+  },
+  {
+    name: 'Tarlon Khoubyari',
+    title: 'Marketing and Communications Leader',
+    company: '',
+    imgSrc:
+      'https://media-exp1.licdn.com/dms/image/C5603AQFuJy98ny1bow/profile-displayphoto-shrink_800_800/0/1648076692967?e=1671667200&v=beta&t=Mp-dbofDwF4694A-CbMPCCpAjfE2q9SmX89-cmB8bdk',
+    twitterHref: 'https://twitter.com/TarlonKhoubyari',
+    linkedInHref: 'https://www.linkedin.com/in/tarlon-khoubyari/',
   },
 ];
 

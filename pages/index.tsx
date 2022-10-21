@@ -71,13 +71,12 @@ const FAQ = [
   },
   {
     title: 'Who is organizing SF Tech Week?',
-    description:
-      'SFTW is organized by a number of VCs, entrepreneurs, and community leaders in the Bay Area.',
+    description: <Box>SFTW is organized by a number of VCs, entrepreneurs, and community leaders in the Bay Area. <Link textDecoration="underline" href="/about">See organizers here</Link>.</Box>,
   },
   {
     title: 'What kind of events should I expect?',
-    description:
-      'Events will range from fireside chats to expert panels to workshops. There will be something for everyone.',
+    description: <Box>Events will range from fireside chats to expert panels to workshops. There will be something for everyone. <Link textDecoration="underline" href="/events">See event schedule here</Link>.</Box>
+    ,
   },
   {
     title: 'I want to host an event, what do I do?',
